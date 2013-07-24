@@ -474,7 +474,7 @@
                     data: {},
                     dataType: connection.ajaxDataType,
                     error: function (error) {
-                        $(connection).triggerHandler(events.onError, [error.responseText]);
+                        $(connection).triggerHandler(events.onError, [error.responseText || error.message]);
                         deferred.reject("SignalR: Error during negotiation request: " + error.responseText);
                         // Stop the connection if negotiate failed
                         connection.stop();
